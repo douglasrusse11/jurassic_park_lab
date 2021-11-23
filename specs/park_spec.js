@@ -87,4 +87,20 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, 3175500);
   });
 
+  it('should be able to remove dinosaurs by species', function () {
+    dinosaur1 = new Dinosaur("Triceratops", "herbivore", 90);
+    dinosaur2 = new Dinosaur("Velociraptor", "carnivore", 200);
+    dinosaur3 = new Dinosaur("T Rex", "carnivore", 150);
+    dinosaur4 = new Dinosaur("Velociraptor", "carnivore", 200);
+    dinosaur5 = new Dinosaur("Triceratops", "carnivore", 200);
+    park.addDinosaur(dinosaur1)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    park.addDinosaur(dinosaur4)
+    park.addDinosaur(dinosaur5)
+    park.removeDinosaurBySpecies("Velociraptor")
+    const actual = park.dinosaurs
+    assert.deepStrictEqual(actual, [dinosaur1, dinosaur3, dinosaur5])
+  });
+
 });
