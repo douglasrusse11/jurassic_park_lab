@@ -51,4 +51,12 @@ Park.prototype.removeDinosaurBySpecies = function (species) {
     }
 }
 
+Park.prototype.diets = function () {
+    let diet = {'carnivore': 0, 'herbivore': 0, 'omnivore': 0}
+    for (dinosaur of this.dinosaurs) {
+        diet[dinosaur.diet]++
+    }
+    return diet
+}
+
 module.exports = Park;

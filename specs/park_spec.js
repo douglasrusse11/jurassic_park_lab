@@ -103,4 +103,19 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur1, dinosaur3, dinosaur5])
   });
 
+  it('should provide the number of dinosaurs on each diet', function () {
+    dinosaur1 = new Dinosaur("Triceratops", "herbivore", 90);
+    dinosaur2 = new Dinosaur("Velociraptor", "carnivore", 200);
+    dinosaur3 = new Dinosaur("T Rex", "omnivore", 150);
+    dinosaur4 = new Dinosaur("Velociraptor", "carnivore", 40);
+    dinosaur5 = new Dinosaur("Triceratops", "herbivore", 10);
+    park.addDinosaur(dinosaur1)
+    park.addDinosaur(dinosaur2)
+    park.addDinosaur(dinosaur3)
+    park.addDinosaur(dinosaur4)
+    park.addDinosaur(dinosaur5)
+    const actual = park.diets()
+    assert.deepStrictEqual(actual, {'carnivore': 2, 'herbivore': 2, 'omnivore': 1})
+  })
+
 });
