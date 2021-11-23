@@ -44,10 +44,8 @@ Park.prototype.totalRevenue = function() {
 }
 
 Park.prototype.removeDinosaurBySpecies = function (species) {
-    for (let i = this.dinosaurs.length - 1; i >= 0; i--) {
-        if (this.dinosaurs[i].species == species) {
-            this.dinosaurs.splice(i, 1)
-        }
+    while (this.dinosaurs.findIndex(dinosaur => dinosaur.species == species) != -1) {
+        this.dinosaurs.splice(this.dinosaurs.findIndex(dinosaur => dinosaur.species == species), 1)
     }
 }
 
