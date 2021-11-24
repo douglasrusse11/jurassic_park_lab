@@ -28,7 +28,7 @@ Park.prototype.allOfSpecies = function(species) {
 }
 
 Park.prototype.totalVisitors = function() {
-    return this.dinosaurs.reduce((previous, current) => previous.guestsAttractedPerDay + current.guestsAttractedPerDay )
+    return this.dinosaurs.reduce((acc, currentDinosaur) => acc + currentDinosaur.guestsAttractedPerDay, 0)
 }
 
 Park.prototype.totalYearlyVisitors = function() {
