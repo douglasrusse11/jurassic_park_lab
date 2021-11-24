@@ -28,7 +28,6 @@ Park.prototype.allOfSpecies = function(species) {
 }
 
 Park.prototype.totalVisitors = function() {
-  
     return this.dinosaurs.reduce((previous, current) => previous.guestsAttractedPerDay + current.guestsAttractedPerDay )
 }
 
@@ -41,9 +40,7 @@ Park.prototype.totalRevenue = function() {
 }
 
 Park.prototype.removeDinosaurBySpecies = function (species) {
-    while (this.dinosaurs.findIndex(dinosaur => dinosaur.species == species) != -1) {
-        this.dinosaurs.splice(this.dinosaurs.findIndex(dinosaur => dinosaur.species == species), 1)
-    }
+    this.dinosaurs = this.dinosaurs.filter(dinosaur => dinosaur.species != species)
 }
 
 Park.prototype.diets = function () {
