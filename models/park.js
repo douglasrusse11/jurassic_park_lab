@@ -28,11 +28,8 @@ Park.prototype.allOfSpecies = function(species) {
 }
 
 Park.prototype.totalVisitors = function() {
-    let totalVisitors = 0
-    for (const dinosaur of this.dinosaurs) {
-        totalVisitors += dinosaur.guestsAttractedPerDay
-    }
-    return totalVisitors
+  
+    return this.dinosaurs.reduce((previous, current) => previous.guestsAttractedPerDay + current.guestsAttractedPerDay )
 }
 
 Park.prototype.totalYearlyVisitors = function() {
